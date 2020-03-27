@@ -10,6 +10,7 @@ script:
    - docker run --env CI=true portasanych/frontend_app_docker_udemy_edu npm run test -- --coverage
 
 delpoy:
+   edge: true
    provider: elasticbeanstalk
    region: eu-central-1
    app: "frontend_app_docker_udemy_edu"
