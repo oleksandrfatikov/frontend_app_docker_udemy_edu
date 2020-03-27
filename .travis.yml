@@ -8,3 +8,16 @@ before_install:
 
 script:
    - docker run --env CI=true portasanych/frontend_app_docker_udemy_edu npm run test -- --coverage
+
+delpoy:
+   provider: elasticbeanstalk
+   region: eu-central-1
+   app: "frontend_app_docker_udemy_edu"
+   env: "FrontendAppDockerUdemyEdu-env"
+   bucket_name: "elasticbeanstalk-eu-central-1-098769653075"
+   bucket_path: "frontend_app_docker_udemy_edu"
+   on:
+     branch: master
+   access_key_id: "$AWS_ACCESS_KEY"
+   secret_access_key:
+     secure: "$AWS_SECRET_KEY"
